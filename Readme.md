@@ -45,6 +45,7 @@ to-do-app-backend/
 │── models/           # Database models (MySQL + MongoDB)
 │── routes/           # API routes
 │── middlewares/      # Auth middleware (JWT verification)
+│── repository/       # Handles DB Queries
 │── .env              # Environment variables (not committed to GitHub)
 │── index.js            # Express app entry point
 │── package.json      # Dependencies and scripts
