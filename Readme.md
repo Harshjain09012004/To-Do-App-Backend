@@ -21,7 +21,7 @@ It follows the **MVC architecture** for scalability and maintainability.
 - 🔑 **Secure APIs**
   - Authentication & authorization via **JWT**
 - 🏗️ **MVC Architecture**
-  - Separation of **Models, Controllers, Routes, Config**
+  - Separation of **Models, Routes, Config**
 
 ---
 
@@ -42,13 +42,11 @@ It follows the **MVC architecture** for scalability and maintainability.
 
 to-do-app-backend/
 │── config/           # DB connection setup
-│── controllers/      # Request handling logic
 │── models/           # Database models (MySQL + MongoDB)
 │── routes/           # API routes
 │── middlewares/      # Auth middleware (JWT verification)
-│── utils/            # Helper functions (e.g., bcrypt utils)
 │── .env              # Environment variables (not committed to GitHub)
-│── app.js            # Express app entry point
+│── index.js            # Express app entry point
 │── package.json      # Dependencies and scripts
 │── README.md         # Documentation
 
@@ -101,32 +99,19 @@ npm install
 * Create a `.env` file in the project root.
 * Copy the variables listed above and replace them with your **Cloud MySQL** and **Cloud MongoDB** credentials.
 
-### 4. Setup MySQL Database
 
-Run the following SQL script to create a **users table**:
-
-```sql
-CREATE TABLE users (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  username VARCHAR(100) NOT NULL UNIQUE,
-  email VARCHAR(100) NOT NULL UNIQUE,
-  password VARCHAR(255) NOT NULL,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-```
-
-### 5. Start the server
+### 4. Start the server
 
 ```bash
-npm start
+npm run dev
 ```
 
 Your backend should now run on:
 👉 `http://localhost:5000`
 
-### 6. Test the APIs
+### 5. Test the APIs
 
-Use [Postman](https://www.postman.com/) or [cURL](https://curl.se/) to test endpoints:
+Use [Postman](https://www.postman.com/):
 
 * Register → `POST /api/auth/register`
 * Login → `POST /api/auth/login`
@@ -144,8 +129,8 @@ Use [Postman](https://www.postman.com/) or [cURL](https://curl.se/) to test endp
 ### 📝 Tasks (MongoDB)
 
 * **GET** `/api/tasks` → Get all tasks (JWT required)
-* **POST** `/api/tasks` → Create a new task
-* **PUT** `/api/tasks/:id` → Update a task
-* **DELETE** `/api/tasks/:id` → Delete a task
+* **POST** `/api/tasks` → Create a new task (JWT required)
+* **PUT** `/api/tasks/:id` → Update a task (JWT required)
+* **DELETE** `/api/tasks/:id` → Delete a task (JWT required)
 
 ---
